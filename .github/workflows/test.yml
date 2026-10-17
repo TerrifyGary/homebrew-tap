@@ -1,0 +1,24 @@
+name: Homebrew installation
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  install:
+    runs-on: macos-15
+    timeout-minutes: 20
+    steps:
+      - name: Verify Apple Silicon runner
+        run: test "$(uname -m)" = arm64
+      - name: Update Homebrew
+        run: brew update
+      - name: Install published formula
+        run: brew install TerrifyGary/tap/htopmodern
+      - name: Test formula and both commands
+        run: |
+          brew test TerrifyGary/tap/htopmodern
+          htopmodern --version
+          htm --version
+          htm --check
