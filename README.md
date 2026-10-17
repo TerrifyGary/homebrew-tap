@@ -20,6 +20,8 @@ See [the app README](https://github.com/TerrifyGary/htopModern) for controls, pe
 
 ## Release validation
 
-The source archive checksum, Rust tests, lint checks, release build, and CLI smoke checks are verified on the development Mac. The formula is loaded and validated with Homebrew. A full dependency-managed install requires native ARM Homebrew; the development Mac currently has Intel Homebrew under `/usr/local`, so full installation has not been verified there.
+The source archive checksum, Rust tests, lint checks, release build, and CLI smoke checks passed. Homebrew style validation passed. A clean Apple Silicon macOS 15 GitHub runner successfully installed the formula, ran `brew test`, and verified both `htopmodern` and `htm`: [installation validation](https://github.com/TerrifyGary/homebrew-tap/actions/runs/39022824044).
+
+The development Mac has Intel Homebrew under `/usr/local`; the install check deliberately ran on a native ARM runner instead of changing that setup.
 
 Formula code is MIT licensed.

@@ -6,9 +6,9 @@ class Htopmodern < Formula
   license "MIT"
 
   depends_on "rust" => :build
-  depends_on :macos
   depends_on arch: :arm64
   depends_on "macmon"
+  depends_on :macos
 
   def fetch
     system "cargo", "fetch", *std_cargo_fetch_args
